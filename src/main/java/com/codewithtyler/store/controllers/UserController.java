@@ -1,6 +1,7 @@
 package com.codewithtyler.store.controllers;
 
 import com.codewithtyler.store.dtos.RegisterUserRequest;
+import com.codewithtyler.store.dtos.UpdateUserRequest;
 import com.codewithtyler.store.dtos.UserDto;
 import com.codewithtyler.store.mappers.UserMapper;
 import com.codewithtyler.store.repositories.UserRepository;
@@ -55,6 +56,20 @@ public class UserController {
                 .toUri();
 
         return ResponseEntity.created(uri).body(userDto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UserDto> updateUser(
+            @PathVariable(name = "id") Long id,
+            @RequestBody UpdateUserRequest request) {
+        var user = userRepository.findById(id).orElse(null);
+        if (user == null)
+            return ResponseEntity.notFound().build();
+
+        userMapper.update(request, user);
+        userRepository.save(user);
+
+        return ResponseEntity.ok(userMapper.toDto(user));
     }
 
 }
