@@ -5,6 +5,7 @@ import com.codewithtyler.store.entities.Product;
 import com.codewithtyler.store.mappers.ProductMapper;
 import com.codewithtyler.store.repositories.CategoryRepository;
 import com.codewithtyler.store.repositories.ProductRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 @AllArgsConstructor
+@Tag(name = "Products")
 public class ProductController {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
