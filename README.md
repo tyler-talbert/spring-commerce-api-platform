@@ -1,6 +1,6 @@
 # Spring Commerce API Platform
 
-A production-ready RESTful API built with Spring Boot 3.5 for e-commerce applications. This platform provides comprehensive user management, product catalog, and shopping cart functionality with a focus on clean architecture and maintaiability.
+A production-ready RESTful API built with Spring Boot 3.5 for e-commerce applications. This platform provides comprehensive user management, product catalog, and shopping cart functionality with a focus on clean architecture and maintainability.
 
 ## Architecture
 
